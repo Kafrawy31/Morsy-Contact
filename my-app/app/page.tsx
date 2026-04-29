@@ -89,86 +89,63 @@ const links = [
   },
 ];
 
-  return (
-    <>
-      <LoadingPage />
+ return (
+  <>
+    <LoadingPage />
 
-      <div className="relative flex h-screen flex-col">
-        {/* Top section */}
-        <div className="flex-[6] bg-[#4DBAA9] flex flex-col items-center justify-center px-6 pb-12 text-center">
+    <div className="relative flex h-dvh overflow-hidden flex-col">
+      {/* Top section */}
+      <div className="flex-[6] bg-[#4DBAA9] flex flex-col items-center justify-center px-6 pb-12 text-center">
+        <Image
+          src="/encorp-logo.png"
+          alt="Encorp Logo"
+          width={180}
+          height={100}
+          className="mb-6 mt-6 object-contain"
+        />
 
-  {/* Company Logo (back on top) */}
-  <Image
-    src="/encorp-logo.png"
-    alt="Encorp Logo"
-    width={180}
-    height={100}
-    className="mb-6 mt-6 object-contain"
-  />
+        <Image
+          src="/morsy-profile-picture.jpeg"
+          alt="Mohammed Morsy"
+          width={130}
+          height={130}
+          className="mb-4 h-32 w-32 rounded-full object-cover object-[center_18%] shadow-lg"
+        />
 
-  {/* Smaller Profile Image */}
-  <Image
-    src="/morsy-profile-picture.jpeg"
-    alt="Mohammed Morsy"
-    width={130}
-    height={130}
-    className="mb-4 h-30 w-30 rounded-full object-cover object-[center_18%] shadow-lg"
-  />
+        <div className="text-white">
+          <h1 className="text-3xl font-medium tracking-[0.05em]">
+            Mohammed Morsy
+          </h1>
 
-  {/* Info */}
-  <div className="text-white">
-    <h1 className="text-3xl font-medium tracking-[0.05em]">
-      Mohammed Morsy
-    </h1>
+          <p className="mt-2 text-base font-normal tracking-[0.05em] opacity-90">
+            MEP Projects Director
+          </p>
 
-    <p className="mt-2 text-base font-normal tracking-[0.05em] opacity-90">
-      MEP Projects Director
-    </p>
-
-    <p className="mt-3 max-w-xs text-sm font-light tracking-[0.05em] opacity-80">
-      8 Mansouria Road, Floor 3, Giza, Egypt
-    </p>
-  </div>
-</div>
-        {/* Bottom section */}
-        <div className="flex-[4] bg-white flex flex-col items-center justify-center px-6 pt-12 text-center">
-
-  {/* Label */}
-  <p className="mb-3 text-xs font-medium tracking-[0.15em] text-neutral-500 uppercase">
-    Company Links
-  </p>
-
-  {/* Description */}
-  <p className="max-w-xs text-sm font-light tracking-[0.05em] text-neutral-600">
-    Engineering & construction services
-  </p>
-
-  {/* Icons */}
-  <div className="mt-5 flex gap-5">
-    {companyLinks.map((item) => (
-      <button
-        key={item.title}
-        onClick={item.onClick}
-        aria-label={item.title}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-[#4DBAA9]/10 transition active:scale-90"
-      >
-        <div className="h-5 w-5 text-[#4DBAA9]">
-          {item.icon}
+          <p className="mt-3 max-w-xs text-sm font-light tracking-[0.05em] opacity-80">
+            8 Mansouria Road, Floor 3, Giza, Egypt
+          </p>
         </div>
-      </button>
-    ))}
-  </div>
-</div>
-        {/* Icon buttons — PERFECTLY centered */}
-        <div className="absolute left-1/2 top-[59vh] flex -translate-x-1/2 -translate-y-1/2 gap-5 px-6">
-          {links.map((item) => (
+      </div>
+
+      {/* Bottom section */}
+      <div className="flex-[4] bg-white flex flex-col items-center justify-center px-6 pt-12 text-center">
+        <p className="mb-3 text-xs font-medium tracking-[0.15em] text-neutral-500 uppercase">
+          Company Links
+        </p>
+
+        <p className="max-w-xs text-sm font-light tracking-[0.05em] text-neutral-600">
+          Engineering & construction services
+        </p>
+
+        <div className="mt-5 flex gap-5">
+          {companyLinks.map((item) => (
             <button
               key={item.title}
               onClick={item.onClick}
               aria-label={item.title}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-200 active:scale-90 active:shadow-sm"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#4DBAA9]/10 transition active:scale-90"
             >
-              <div className="h-6 w-6 text-[#4DBAA9]">
+              <div className="h-5 w-5 text-[#4DBAA9]">
                 {item.icon}
               </div>
             </button>
@@ -176,18 +153,34 @@ const links = [
         </div>
       </div>
 
-      {/* Toast */}
-      <ToastContainer
-        position="bottom-center"
-        autoClose={1200}
-        hideProgressBar
-        closeButton={false}
-        pauseOnHover={false}
-        theme="light"
-        toastClassName="rounded-full text-sm shadow-md"
-      />
-    </>
-  );
+      {/* Main contact icons */}
+      <div className="absolute left-1/2 top-[59dvh] flex -translate-x-1/2 -translate-y-1/2 gap-5 px-6">
+        {links.map((item) => (
+          <button
+            key={item.title}
+            onClick={item.onClick}
+            aria-label={item.title}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-200 active:scale-90 active:shadow-sm"
+          >
+            <div className="h-6 w-6 text-[#4DBAA9]">
+              {item.icon}
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <ToastContainer
+      position="bottom-center"
+      autoClose={1200}
+      hideProgressBar
+      closeButton={false}
+      pauseOnHover={false}
+      theme="light"
+      toastClassName="rounded-full text-sm shadow-md"
+    />
+  </>
+);
 };
 
 export default FloatingDockDemo;
